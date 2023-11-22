@@ -8,12 +8,6 @@ unless Dir.exist?(dirname)
 end
 
 points = `xrectsel`
-split = points.split("+")
-geometry = split[0].split("x")
-width = geometry[0]
-height = geometry[1]
-x = split[1]
-y = split[2]
 names = []
 
 for i in 1..5 do
