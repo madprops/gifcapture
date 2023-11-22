@@ -15,7 +15,7 @@ end
 points = `xrectsel`
 sleep(0.1)
 
-for i in 1..5 do
+for i in 1..5
   name = "#{dirname}/#{i}.#{imgformat}"
   names.push(name)
   `import -window root -crop "#{points}" #{name}`
