@@ -1,23 +1,27 @@
 #!/usr/bin/env ruby
-unixtime = Time.now.to_i
+delay = 33
+quality = 75
+interval = 0.777
+imgformat = "jpg"
 rootdir = "/home/yo/Downloads/pics/caps"
+unixtime = Time.now.to_i
 dirname = "#{rootdir}/#{unixtime}"
+names = []
 
 unless Dir.exist?(dirname)
   Dir.mkdir(dirname)
 end
 
 points = `xrectsel`
-names = []
 sleep(0.1)
 
 for i in 1..5 do
-  name = "#{dirname}/#{i}.jpg"
+  name = "#{dirname}/#{i}.#{imgformat}"
   names.push(name)
   `import -window root -crop "#{points}" #{name}`
-  sleep(0.777)
+  sleep(interval)
 end
 
 flat = names.join(" ")
-`convert -delay 33 -loop 0 #{flat} -quality 75 #{dirname}/result.gif`
+`convert -delay #{delay} -loop 0 #{flat} -quality #{quality} #{dirname}/result.gif`
 `notify-send "GIF created in #{dirname}"`
