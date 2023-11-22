@@ -2,11 +2,6 @@
 unixtime = Time.now.to_i
 rootdir = "/home/yo/Downloads/pics/caps/"
 dirname = "#{rootdir}/#{unixtime}"
-
-unless Dir.exist?(dirname)
-  Dir.mkdir(dirname)
-end
-
 points = `xrectsel`
 names = []
 
