@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 delay = 33
-quality = 75
+quality = 80
 interval = 0.777
 imgformat = "jpg"
 rootdir = "/home/yo/Downloads/pics/caps"
