@@ -3,6 +3,12 @@
 
 You will need:
 
+>ruby
+
+https://archlinux.org/packages/extra/x86_64/ruby/
+
+---
+
 >xrectsel
 
 https://aur.archlinux.org/packages/xrectsel
