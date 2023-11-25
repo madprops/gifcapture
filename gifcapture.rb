@@ -6,7 +6,18 @@ imgformat = "jpg"
 rootdir = "/home/yo/Downloads/pics/caps"
 unixtime = Time.now.to_i
 dirname = "#{rootdir}/#{unixtime}"
-names = []
+$consonants = ("a".."z").to_a - ["a", "e", "i", "o", "u"]
+$vowels = ["a", "e", "i", "o", "u"]
+
+def tagname(num)
+  word = ""
+
+  num.times do
+    word += "#{$consonants.sample}#{$vowels.sample}"
+  end
+
+  return word
+end
 
 unless Dir.exist?(dirname)
   Dir.mkdir(dirname)
@@ -14,6 +25,7 @@ end
 
 points = `xrectsel`
 sleep(0.1)
+names = []
 
 for i in 1..5
   name = "#{dirname}/#{i}.#{imgformat}"
@@ -23,5 +35,6 @@ for i in 1..5
 end
 
 flat = names.join(" ")
-`convert -delay #{delay} -loop 0 #{flat} -quality #{quality} #{dirname}/result.gif`
-`notify-send "GIF created in #{dirname}"`
+gif_name = tagname(3)
+`convert -delay #{delay} -loop 0 #{flat} -quality #{quality} #{dirname}/#{gif_name}.gif`
+`notify-send "GIF saved as #{dirname}/#{gif_name}.gif"`
