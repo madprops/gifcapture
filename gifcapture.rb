@@ -19,16 +19,15 @@ end
 def capture()
   points = `xrectsel`
   sleep(0.1)
-  split = points.split("+")
-  geometry = split[0].split("x")
-  width = geometry[0]
-  height = geometry[1]
-  x = split[1]
-  y = split[2]
+  matches = points.match(/(\d+)x(\d+)\+(\d+)\+(\d+)/)
+  width = matches[1].to_i
+  height = matches[2].to_i
+  x = matches[3].to_i
+  y = matches[4].to_i
 
   for i in 1..$num_images
     name = "#{$dirname}/#{i}.#{$image_ext}"
-    `scrot -o #{name} -a #{width},#{height},#{x},#{y}`
+    `scrot -o #{name} -a #{x},#{y},#{width},#{height}`
 
     if i == $num_images
       break
