@@ -1,3 +1,6 @@
+$consonants = ("a".."z").to_a - ["a", "e", "i", "o", "u"]
+$vowels = ["a", "e", "i", "o", "u"]
+
 def mkdir()
   unless Dir.exist?($dirname)
     Dir.mkdir($dirname)
@@ -26,12 +29,10 @@ def capture()
 end
 
 def tagname(num)
-  consonants = ("a".."z").to_a - ["a", "e", "i", "o", "u"]
-  vowels = ["a", "e", "i", "o", "u"]
   word = ""
 
   num.times do
-    word += "#{consonants.sample}#{vowels.sample}"
+    word += "#{$consonants.sample}#{$vowels.sample}"
   end
 
   return word
