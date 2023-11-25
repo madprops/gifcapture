@@ -4,8 +4,7 @@ quality = 80
 interval = 0.777
 imgformat = "jpg"
 rootdir = "/home/yo/Downloads/pics/caps"
-unixtime = Time.now.to_i
-dirname = "#{rootdir}/#{unixtime}"
+dirname = "#{rootdir}/#{Time.now.to_i}"
 $consonants = ("a".."z").to_a - ["a", "e", "i", "o", "u"]
 $vowels = ["a", "e", "i", "o", "u"]
 
