@@ -35,6 +35,6 @@ for i in 1..5
 end
 
 flat = names.join(" ")
-gif_name = tagname(3)
-`convert -delay #{delay} -loop 0 #{flat} -quality #{quality} #{dirname}/#{gif_name}.gif`
-`notify-send "GIF saved as #{dirname}/#{gif_name}.gif"`
+output = "#{dirname}/#{tagname(3)}.gif"
+`convert -delay #{delay} -loop 0 #{flat} -quality #{quality} #{output}`
+`notify-send "GIF saved as #{output}"`
