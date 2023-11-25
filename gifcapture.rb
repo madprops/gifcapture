@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
-delay = 33
-quality = 80
 interval = 0.777
-imgformat = "jpg"
+framerate = 3.33
+num_images = 3
+image_ext = "png"
 rootdir = "/home/yo/Downloads/pics/caps"
 dirname = "#{rootdir}/#{Time.now.to_i}"
 $consonants = ("a".."z").to_a - ["a", "e", "i", "o", "u"]
@@ -26,14 +26,19 @@ points = `xrectsel`
 sleep(0.1)
 names = []
 
-for i in 1..5
-  name = "#{dirname}/#{i}.#{imgformat}"
+for i in 1..num_images
+  name = "#{dirname}/#{i}.#{image_ext}"
   names.push(name)
   `import -window root -crop "#{points}" #{name}`
+
+  if i == num_images
+    break
+  end
+
   sleep(interval)
 end
 
-flat = names.join(" ")
+files = "#{dirname}/%d.#{image_ext}"
 output = "#{dirname}/#{tagname(3)}.gif"
-`convert -delay #{delay} -loop 0 #{flat} -quality #{quality} #{output}`
+`ffmpeg -framerate #{framerate} -i #{files} #{output} -y`
 `notify-send "GIF saved as #{output}"`
