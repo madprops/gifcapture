@@ -1,3 +1,4 @@
+$dirname = "#{$rootdir}/#{Time.now.to_i}"
 $consonants = ("a".."z").to_a - ["a", "e", "i", "o", "u"]
 $vowels = ["a", "e", "i", "o", "u"]
 

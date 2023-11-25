@@ -4,4 +4,3 @@ $quality = 80
 $num_images = 5
 $image_ext = "png"
 $rootdir = "/home/yo/Downloads/pics/caps"
-$dirname = "#{$rootdir}/#{Time.now.to_i}"
