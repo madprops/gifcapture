@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
-require_relative "src/config.rb"
-require_relative "src/procs.rb"
+alias req require_relative
+req "src/config.rb"
+req "src/procs.rb"
+
 mkdir()
 capture()
 render()
