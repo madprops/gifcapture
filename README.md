@@ -23,7 +23,7 @@ https://archlinux.org/packages/extra/x86_64/scrot/
 
 ---
 
->imagemagick
+>convert
 
 https://archlinux.org/packages/extra/x86_64/imagemagick/
 
