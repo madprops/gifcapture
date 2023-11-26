@@ -12,7 +12,9 @@ $quality = 80
 $num_images = 5
 
 # Save images using this extension
+# png is recommended as it will result in lower gif file size
 $image_ext = "png"
 
 # Root directory to save images
+# Subdirectories are created here automatically
 $rootdir = "/home/yo/Downloads/pics/caps"
