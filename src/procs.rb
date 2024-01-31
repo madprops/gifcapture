@@ -45,3 +45,7 @@ def render()
   `convert -delay #{$delay} -loop 0 #{files} -quality #{$quality} #{output}`
   `notify-send "GIF saved as #{output}"`
 end
+
+def opendir()
+  system("xdg-open", $dirname)
+end

@@ -6,3 +6,4 @@ req "src/procs.rb"
 mkdir()
 capture()
 render()
+opendir()
