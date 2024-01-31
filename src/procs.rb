@@ -41,9 +41,13 @@ end
 
 def render()
   files = "#{$dirname}/*.#{$image_ext}"
-  output = "#{$dirname}/#{tagname(3)}.gif"
-  `convert -delay #{$delay} -loop 0 #{files} -quality #{$quality} #{output}`
-  `notify-send "GIF saved as #{output}"`
+  file_path = "#{$dirname}/#{tagname(3)}.gif"
+  `convert -delay #{$delay} -loop 0 #{files} -quality #{$quality} #{file_path}`
+  return file_path
+end
+
+def notify(file_path)
+  system("notify-send", "GIF saved as #{file_path}")
 end
 
 def opendir()

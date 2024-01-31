@@ -5,5 +5,5 @@ req "src/procs.rb"
 
 mkdir()
 capture()
-render()
+notify(render())
 opendir()
