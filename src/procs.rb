@@ -9,17 +9,13 @@ def mkdir()
 end
 
 def capture()
-  points = `xrectsel`
+  geometry = `slurp -f "%wx%h+%x+%y"`.strip
   sleep(0.1)
-  matches = points.match(/(\d+)x(\d+)\+(\d+)\+(\d+)/)
-  width = matches[1].to_i
-  height = matches[2].to_i
-  x = matches[3].to_i
-  y = matches[4].to_i
 
   for i in 1..$num_images
     name = "#{$dirname}/#{i}.#{$image_ext}"
-    `scrot -o #{name} -a #{x},#{y},#{width},#{height}`
+    `spectacle -f -b -n -o #{name}`
+    `magick #{name} -crop #{geometry} +repage #{name}`
 
     if i == $num_images
       break
@@ -31,18 +27,16 @@ end
 
 def tagname(num)
   word = ""
-
   num.times do
     word += "#{$consonants.sample}#{$vowels.sample}"
   end
-
   return word
 end
 
 def render()
   files = "#{$dirname}/*.#{$image_ext}"
   file_path = "#{$dirname}/#{tagname(3)}.gif"
-  `convert -delay #{$delay} -loop 0 #{files} -quality #{$quality} #{file_path}`
+  `magick -delay #{$delay} -loop 0 #{files} -quality #{$quality} #{file_path}`
   return file_path
 end
 

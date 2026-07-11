@@ -17,8 +17,7 @@
           default = pkgs.mkShell {
             packages = with pkgs; [
               ruby
-              xrectsel
-              scrot
+              slurp
               imagemagick
               libnotify
               xdg-utils

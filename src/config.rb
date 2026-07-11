@@ -17,4 +17,4 @@ $image_ext = "png"
 
 # Root directory to save images
 # Subdirectories are created here automatically
-$rootdir = "/home/yo/Downloads/pics/caps"
+$rootdir = "/home/yo/Pictures/caps/"
